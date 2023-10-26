@@ -21,7 +21,7 @@ const App: () => JSX.Element = () => {
         title="Compute"
         onPress={async () => {
           // const value = await RTNCalculator?.add(3, 7);
-          const value = RTNCalculator?.addSync(3, 8);
+          const value = RTNCalculator?.runC42VMSync();
           console.log('value', value);
           setResult(value ?? null);
         }}
