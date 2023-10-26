@@ -11,8 +11,7 @@ import RTNCalculator from 'rtn-calculator/js/NativeCalculator';
 
 const App: () => JSX.Element = () => {
   const [result, setResult] = useState<number | null>(null);
-  console.log('RTNCalculator', RTNCalculator);
-  console.log('RTNCalculator.addSync', RTNCalculator?.addSync);
+
   return (
     <SafeAreaView>
       <StatusBar barStyle={'dark-content'} />
@@ -20,8 +19,7 @@ const App: () => JSX.Element = () => {
       <Button
         title="Compute"
         onPress={async () => {
-          // const value = await RTNCalculator?.add(3, 7);
-          const value = RTNCalculator?.runC42VMSync();
+          const value = await RTNCalculator?.add(3, 7);
           console.log('value', value);
           setResult(value ?? null);
         }}

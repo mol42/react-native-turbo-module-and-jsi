@@ -1,6 +1,5 @@
 #import "RTNCalculatorSpec.h"
 #import "RTNCalculator.h"
-#import "C42VM.h"
 
 @implementation RTNCalculator
 
@@ -14,25 +13,6 @@ RCT_EXPORT_MODULE()
 - (NSNumber *)addSync:(double)a
                     b:(double)b {
     NSNumber *result = [[NSNumber alloc] initWithInteger:a+b];         
-    return result;  
-}
-
-- (NSNumber *)runC42VMSync {
-    int program[] = {
-        CONST_I32, 10,
-        CONST_I32, 3,
-        ADD_I32,
-        EXIT_AND_RETURN            
-    };
-    
-    // initialize virtual machine
-    C42VM* vm = newC42VM(program,
-                       0, // main 7. index
-                       100);
-                       
-    int resultFromVM = runVM(vm);
-
-    NSNumber *result = [[NSNumber alloc] initWithInteger:resultFromVM];         
     return result;  
 }
 
